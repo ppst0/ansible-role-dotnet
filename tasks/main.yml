@@ -1,0 +1,14 @@
+---
+# tasks file for roles/deploy-dotnet
+
+- include_tasks: "RedHat.yaml"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Amazon' or ansible_distribution == 'Fedora'
+
+- include: "Debian.yaml"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install dotnet core
+  package:
+    name: '{{ dotnet_package }}'
+    state: present
+    update_cache: true

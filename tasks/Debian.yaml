@@ -1,0 +1,48 @@
+---
+- name: Set MSFT repo url
+  set_fact:
+    msft_repo: "{{ item.url }}"
+  when:
+    - ansible_lsb.codename == item.codename
+  with_items:
+    - codename: eoan
+      url: https://packages.microsoft.com/ubuntu/19.10/prod eoan
+    - codename: disco
+      url: https://packages.microsoft.com/ubuntu/19.04/prod disco
+    - codename: cosmic
+      url: https://packages.microsoft.com/ubuntu/18.10/prod cosmic
+    - codename: bionic
+      url: https://packages.microsoft.com/ubuntu/18.04/prod bionic
+    - codename: artful
+      url: https://packages.microsoft.com/ubuntu/17.10/prod artful
+    - codename: zesty
+      url: https://packages.microsoft.com/ubuntu/17.04/prod zesty
+    - codename: yakkety
+      url: https://packages.microsoft.com/ubuntu/16.10/prod yakkety
+    - codename: xenial
+      url: https://packages.microsoft.com/ubuntu/16.04/prod xenial
+    - codename: wily
+      url: https://packages.microsoft.com/ubuntu/15.10/prod wily
+    - codename: trusty
+      url: https://packages.microsoft.com/ubuntu/14.04/prod trusty
+    - codename: jessie
+      url: https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie
+    - codename: stretch
+      url: https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch
+
+- name: Install Pre-Requistes
+  apt:
+    name: ['gawk','apt-transport-https']
+    state: present
+
+- name: Install MSFT GPG key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Add MSFT repository
+  apt_repository:
+    repo: "deb [arch=amd64] {{ msft_repo }} main"
+    filename: microsoft
+    state: present
+    update_cache: yes

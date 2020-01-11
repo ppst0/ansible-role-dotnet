@@ -1,0 +1,4 @@
+---
+# defaults file for roles/deploy-dotnet
+
+dotnet_package: dotnet-runtime-3.1
