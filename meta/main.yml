@@ -1,7 +1,8 @@
 ---
-allow_duplicates: true
+#allow_duplicates: true
 
 galaxy_info:
+  role_name: dotnet
   author: ppst0
   description: Install MSFT repo and install dotnet
 
