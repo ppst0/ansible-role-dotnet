@@ -13,9 +13,9 @@ Role Variables
 
 In *defaults/main.yml* contain following definitions:
 
-```dotnet_package: dotnet-runtime-3.1```
+```dotnet_package: dotnet-runtime-6.0```
 
-Possible value for this variable is: dotnet-sdk-{Version}, dotnet-runtime-{Version}, aspnetcore-runtime-{Version}. {Version} is one of the following values: 3.1, 3.0, 2.2, 2.1.
+Possible value for this variable is: dotnet-sdk-{Version}, dotnet-runtime-{Version}, aspnetcore-runtime-{Version}. {Version} is one of the following values: 6.0, 5.0, 3.1.
 
 More information about dotnet versions available for installation is here - [RHEL](https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-rhel7), [Debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-debian10)
 
