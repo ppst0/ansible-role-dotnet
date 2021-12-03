@@ -5,6 +5,16 @@
   when:
     - ansible_lsb.codename == item.codename
   with_items:
+    - codename: impish
+      url: https://packages.microsoft.com/ubuntu/21.10/prod impish
+    - codename: impish
+      url: https://packages.microsoft.com/ubuntu/21.10/prod impish
+    - codename: hirsute
+      url: https://packages.microsoft.com/ubuntu/21.04/prod hirsute
+    - codename: groovy
+      url: https://packages.microsoft.com/ubuntu/20.10/prod groovy
+    - codename: focal
+      url: https://packages.microsoft.com/ubuntu/20.04/prod focal
     - codename: eoan
       url: https://packages.microsoft.com/ubuntu/19.10/prod eoan
     - codename: disco
@@ -29,6 +39,10 @@
       url: https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie
     - codename: stretch
       url: https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch
+    - codename: buster
+      url: https://packages.microsoft.com/repos/microsoft-debian-buster-prod buster
+    - codename: bullseye
+      url: https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye
 
 - name: Install Pre-Requistes
   apt:
