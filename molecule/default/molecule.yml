@@ -17,7 +17,7 @@ platforms:
     image: quay.io/centos/centos:stream8
     pre_build_image: true
   - name: centosstream9
-    image: quay.io/centos/centos:stream8
+    image: quay.io/centos/centos:stream9
     pre_build_image: true
 
   - name: ubuntu

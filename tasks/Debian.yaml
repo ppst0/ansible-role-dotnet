@@ -48,7 +48,7 @@
     - codename: bullseye
       url: https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye
     - codename: bookworm
-      url: https://packages.microsoft.com/repos/microsoft-debian-bookworm-prod bullseye
+      url: https://packages.microsoft.com/repos/microsoft-debian-bookworm-prod bookworm
 
 - name: Allow release-info to change for APT repositories
   command: apt-get update -y --allow-releaseinfo-change
