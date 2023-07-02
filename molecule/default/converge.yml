@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include my_new_role"
-      include_role:
-        name: "my_new_role"
+    - name: "Include dotnet"
+      ansible.builtin.include_role:
+        name: "ppst0.dotnet"

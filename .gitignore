@@ -9,3 +9,4 @@ __pycache__
 .virtualenv
 *.pyc
 requirements.txt
+.vscode

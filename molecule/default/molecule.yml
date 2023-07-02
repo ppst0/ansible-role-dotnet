@@ -4,9 +4,29 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: centos8
     image: docker.io/pycontribs/centos:8
     pre_build_image: true
+  - name: centos7
+    image: docker.io/pycontribs/centos:7
+    pre_build_image: true
+  - name: fedora
+    image: docker.io/pycontribs/fedora:latest
+    pre_build_image: true
+  - name: centosstream8
+    image: quay.io/centos/centos:stream8
+    pre_build_image: true
+  - name: centosstream9
+    image: quay.io/centos/centos:stream8
+    pre_build_image: true
+
+  - name: ubuntu
+    image: docker.io/pycontribs/ubuntu:latest
+    pre_build_image: true
+  - name: debian
+    image: docker.io/pycontribs/debian:latest
+    pre_build_image: true
+
 provisioner:
   name: ansible
 verifier:

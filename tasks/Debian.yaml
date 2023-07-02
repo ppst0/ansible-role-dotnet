@@ -5,8 +5,12 @@
   when:
     - ansible_lsb.codename == item.codename
   with_items:
-    - codename: impish
-      url: https://packages.microsoft.com/ubuntu/21.10/prod impish
+    - codename: lunar
+      url: https://packages.microsoft.com/ubuntu/23.04/prod lunar
+    - codename: kinetic
+      url: https://packages.microsoft.com/ubuntu/22.10/prod kinetic
+    - codename: jammy
+      url: https://packages.microsoft.com/ubuntu/22.04/prod jammy
     - codename: impish
       url: https://packages.microsoft.com/ubuntu/21.10/prod impish
     - codename: hirsute
@@ -43,10 +47,15 @@
       url: https://packages.microsoft.com/repos/microsoft-debian-buster-prod buster
     - codename: bullseye
       url: https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye
+    - codename: bookworm
+      url: https://packages.microsoft.com/repos/microsoft-debian-bookworm-prod bullseye
+
+- name: Allow release-info to change for APT repositories
+  command: apt-get update -y --allow-releaseinfo-change
 
 - name: Install Pre-Requistes
   apt:
-    name: ['gawk','apt-transport-https']
+    name: ['gnupg', 'gawk', 'apt-transport-https']
     state: present
 
 - name: Install MSFT GPG key

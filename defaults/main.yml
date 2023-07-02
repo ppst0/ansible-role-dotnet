@@ -1,4 +1,4 @@
 ---
 # defaults file for roles/deploy-dotnet
 
-dotnet_package: dotnet-runtime-6.0
+dotnet_package: dotnet-runtime-7.0

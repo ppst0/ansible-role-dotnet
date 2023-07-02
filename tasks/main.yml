@@ -4,6 +4,7 @@
 - include_tasks: "RedHat.yaml"
   when: >
     ansible_distribution == 'CentOS'
+    or ansible_distribution == 'CentOS Stream'
     or ansible_distribution == 'Red Hat Enterprise Linux'
     or ansible_distribution == 'RedHat'
     or ansible_distribution == 'Amazon'
@@ -14,7 +15,7 @@
     or ansible_distribution == 'CloudLinux'
     or ansible_distribution == 'AlmaLinux'
 
-- include: "Debian.yaml"
+- include_tasks: "Debian.yaml"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install dotnet core
