@@ -1,6 +1,6 @@
 ---
 - name: Set MSFT repo url
-  set_fact:
+  ansible.builtin.set_fact:
     msft_repo: "{{ item.url }}"
   when:
     - ansible_lsb.codename == item.codename
@@ -51,20 +51,20 @@
       url: https://packages.microsoft.com/repos/microsoft-debian-bookworm-prod bookworm
 
 - name: Allow release-info to change for APT repositories
-  command: apt-get update -y --allow-releaseinfo-change
+  ansible.builtin.command: apt-get update -y --allow-releaseinfo-change
 
 - name: Install Pre-Requistes
-  apt:
+  ansible.builtin.apt:
     name: ['gnupg', 'gawk', 'apt-transport-https']
     state: present
 
 - name: Install MSFT GPG key
-  apt_key:
+  ansible.builtin.apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 
 - name: Add MSFT repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "deb [arch=amd64] {{ msft_repo }} main"
     filename: microsoft
     state: present

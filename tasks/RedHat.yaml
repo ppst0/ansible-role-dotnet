@@ -1,7 +1,7 @@
 ---
 
-- name: Add MSFT repo fro RHEL
-  yum_repository:
+- name: Add MSFT repo for RHEL
+  ansible.builtin.yum_repository:
     name: packages-microsoft-com-prod
     description: packages-microsoft-com-prod
     file: microsoft-prod
@@ -13,15 +13,15 @@
     sslverify: yes
 
 - name: Change mirror.centos.org to vault.centos.org for CentOS 8, as it is defined EOL (step 1)
-  ansible.builtin.shell: sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+  ansible.builtin.command: sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
   when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8' and ansible_distribution_release != 'Stream'
 
 - name: Change mirror.centos.org to vault.centos.org for CentOS 8, as it is defined EOL (step 2)
-  ansible.builtin.shell: sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+  ansible.builtin.command: sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
   when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8' and ansible_distribution_release != 'Stream'
 
 - name: Install dependencies
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   with_items:
